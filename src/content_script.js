@@ -24,15 +24,16 @@ window.addEventListener('message', function(event) {
     return;
   }
 
-  const { content, key, lang } = message.data;
+  if (message.action === 'ADD_KEY') {
+    const { content, key } = message.data;
 
-  if (!keys[lang]) {
-    keys[lang] = {};
+    keys[key] = content;
+
+    chrome.runtime.sendMessage({
+      action: 'KEY_LIST_REQUEST',
+      payload: { keys }
+    });
   }
-
-  keys[lang][key] = content;
-
-  chrome.runtime.sendMessage({ action: 'KEY_LIST_REQUEST', payload: { keys } });
 });
 
 chrome.runtime.onMessage.addListener(function({ action }) {

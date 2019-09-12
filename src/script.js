@@ -1,10 +1,10 @@
 window.__TRANSLATION_DEVTOOLS__ = {};
-window.__TRANSLATION_DEVTOOLS__.addKey = function(lang, key, content) {
+window.__TRANSLATION_DEVTOOLS__.addKey = function(key, content) {
   window.postMessage(
     {
       source: '__TRANSLATION_DEVTOOLS__',
-      type: 'ADD_KEY',
-      data: { lang, key, content }
+      action: 'ADD_KEY',
+      data: { key, content }
     },
     '*'
   );

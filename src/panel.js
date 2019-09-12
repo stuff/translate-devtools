@@ -31,8 +31,7 @@ class TableKey {
   }
 
   updateData(newData) {
-    const lang = Object.keys(newData)[0];
-    this.data = newData[lang];
+    this.data = newData;
     this.sort();
     this.render();
   }
