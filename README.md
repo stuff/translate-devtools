@@ -27,4 +27,4 @@ i18nService.translate = function(key, vars) {
 ```
 
 
-<img src="https://stuff-static.s3.eu-west-3.amazonaws.com/images/translate-devtools/screenshot1.png" />
+<img src="https://stuff-static.s3.eu-west-3.amazonaws.com/images/translate-devtools/screenshot2.png" />
