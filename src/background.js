@@ -35,10 +35,10 @@ chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) {
       // send to panel
       connections[tabId].postMessage(request);
     } else {
-      console.error('Tab not found in connection list.');
+      console.log('Tab not found in connection list.');
     }
   } else {
-    console.error('sender.tab not defined.');
+    console.errlogor('sender.tab not defined.');
   }
   return true;
 });

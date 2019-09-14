@@ -1,11 +1,25 @@
-window.__TRANSLATION_DEVTOOLS__ = {};
-window.__TRANSLATION_DEVTOOLS__.addKey = function(key, content) {
+const api = {};
+
+function addKey(key, content) {
   window.postMessage(
     {
       source: '__TRANSLATION_DEVTOOLS__',
       action: 'ADD_KEY',
-      data: { key, content }
+      payload: { key, content }
     },
     '*'
   );
-};
+}
+
+function addAllTranslations(allKeys) {
+  window.postMessage(
+    {
+      source: '__TRANSLATION_DEVTOOLS__',
+      action: 'ADD_ALL_TRANSLATIONS',
+      payload: { allKeys }
+    },
+    '*'
+  );
+}
+
+window.__TRANSLATION_DEVTOOLS__ = { addKey, addAllTranslations };

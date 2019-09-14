@@ -6,7 +6,9 @@ s.onload = function() {
 };
 
 const keys = {};
+let allTranslations = {};
 
+// messages coming from the page through script.js
 window.addEventListener('message', function(event) {
   // Only accept messages from the same frame
   if (event.source !== window) {
@@ -24,21 +26,54 @@ window.addEventListener('message', function(event) {
     return;
   }
 
-  if (message.action === 'ADD_KEY') {
-    const { content, key } = message.data;
+  switch (message.action) {
+    case 'ADD_KEY': {
+      const { key, content } = message.payload;
 
-    keys[key] = content;
+      keys[key] = content;
 
-    chrome.runtime.sendMessage({
-      action: 'KEY_LIST_REQUEST',
-      payload: { keys }
-    });
+      sendKeys();
+
+      break;
+    }
+
+    case 'ADD_ALL_TRANSLATIONS': {
+      const { allKeys } = message.payload;
+
+      allTranslations = allKeys;
+
+      sendAllTranslations();
+
+      break;
+    }
   }
 });
 
-chrome.runtime.onMessage.addListener(function({ action }) {
-  // send to background script
-  if (action === 'KEY_LIST_REQUEST') {
-    chrome.runtime.sendMessage({ action, payload: { keys } });
+// messages coming from Panel
+chrome.runtime.onMessage.addListener(function(message) {
+  switch (message.action) {
+    case 'REQUEST_KEYS': {
+      sendKeys();
+      break;
+    }
+
+    case 'REQUEST_ALL_TRANSLATIONS': {
+      sendAllTranslations();
+      break;
+    }
   }
 });
+
+function sendKeys() {
+  chrome.runtime.sendMessage({
+    action: 'UPDATE_KEYS',
+    payload: { keys }
+  });
+}
+
+function sendAllTranslations() {
+  chrome.runtime.sendMessage({
+    action: 'UPDATE_ALL_KEYS',
+    payload: { allTranslations }
+  });
+}

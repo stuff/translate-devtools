@@ -1,5 +1,5 @@
 {
-  "version": "0.1.0",
+  "version": "0.2.0",
   "name": "Translate Devtools",
   "short_name": "Translate DevTools",
   "description": "Devtools for translations.",
@@ -16,6 +16,6 @@
       "all_frames": true
     }
   ],
-  "web_accessible_resources": ["script.js", "panel.js"],
+  "web_accessible_resources": ["script.js", "panel.js", "lib.js"],
   "content_security_policy": "script-src 'self' https://unpkg.com; object-src 'self'"
 }

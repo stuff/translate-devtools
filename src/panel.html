@@ -20,8 +20,25 @@
       </fieldset>
     </form>
 
-    <div id="keys"></div>
+    <div
+      id="tabs"
+      class="pure-button-group"
+      role="group"
+      style="margin-bottom: 4px;"
+    >
+      <button class="pure-button pure-button-active" data-name="keys">
+        Used translations<span id="key-count"></span>
+      </button>
+      <button class="pure-button" data-name="all_translations">
+        All translations<span id="all-translations-count"></span>
+      </button>
+    </div>
+
+    <div class="tab-content" id="keys"></div>
+    <div class="tab-content  hidden" id="all_translations"></div>
+
     <script src="https://unpkg.com/lodash@4.17.15/lodash.min.js"></script>
+    <script src="lib.js"></script>
     <script src="panel.js"></script>
   </body>
 </html>
