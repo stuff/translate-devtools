@@ -25,3 +25,6 @@ i18nService.translate = function(key, vars) {
   // return to your front end code
 };
 ```
+
+
+<img src="https://stuff-static.s3.eu-west-3.amazonaws.com/images/translate-devtools/screenshot1.png" />
