@@ -5,6 +5,6 @@
   "author": "Nicolas CHALLEIL <nicolas.challeil@openclassrooms.com>",
   "license": "MIT",
   "scripts": {
-    "build-zip": "PACKAGE_VERSION=$(npx -c 'echo \"$npm_package_version\"') && yarn set-version; cd src/ && zip -r -9 ../translate-devtools-$PACKAGE_VERSION.zip *"
+    "build-zip": "PACKAGE_VERSION=$(npx -c 'echo \"$npm_package_version\"'); cd src/ && zip -r -9 ../translate-devtools-$PACKAGE_VERSION.zip *"
   }
 }
