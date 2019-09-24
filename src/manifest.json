@@ -1,5 +1,5 @@
 {
-  "version": "0.2.0",
+  "version": "0.2.1",
   "name": "Translate Devtools",
   "short_name": "Translate DevTools",
   "description": "Devtools for translations.",
@@ -10,7 +10,7 @@
   },
   "content_scripts": [
     {
-      "matches": ["https://openclassrooms.lan/*"],
+      "matches": ["<all_urls>"],
       "js": ["content_script.js"],
       "run_at": "document_start",
       "all_frames": true
